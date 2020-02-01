@@ -1,9 +1,18 @@
 .card{
-    max-width: 345px;
-    margin-left: 10%;
+    min-width: 345px;
+    margin-bottom: 5%;
+}
+
+.recipecard{
+    max-width: 400px;
+    margin-bottom: 5%;
 }
 
 .media{
     height: 140px;
-    background-image: url("../src/grapes.jpg");
+}
+
+.expand{
+    transform: 'rotate(0deg)';
+    margin-left: 'auto';
 }
