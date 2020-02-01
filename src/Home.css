@@ -1,0 +1,9 @@
+.card{
+    max-width: 345px;
+    margin-left: 10%;
+}
+
+.media{
+    height: 140px;
+    background-image: url("../src/grapes.jpg");
+}
