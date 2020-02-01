@@ -7,6 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import {Link} from 'react-router-dom';
 import '../src/Home.css'
 
   export class Home extends Component {
@@ -93,9 +94,11 @@ import '../src/Home.css'
           <Button size="small" color="primary">
            <FavoriteIcon/>
           </Button>
+          <Link to="/recipes">
           <Button size="small" color="primary"  onClick={this.handleClick(key.name)}>
             Click for more details
           </Button>
+          </Link>
         </CardActions>
       </Card>
     ));

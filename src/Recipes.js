@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -13,7 +12,8 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert'; 
-import '../src/Home.css'
+import '../src/Home.css';
+import {Router, Link} from 'react-router-dom'
 
   export class Recipes extends Component {
     constructor(props){
@@ -99,6 +99,7 @@ import '../src/Home.css'
     render(){
     return (
       this.state.data.map((key, value) => 
+      <Router>
       <Card className="recipecard">
       <CardHeader
         avatar={
@@ -148,6 +149,7 @@ import '../src/Home.css'
         </CardContent>
       </Collapse>
     </Card>
+    </Router>
     ));
     }
   }
