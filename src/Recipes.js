@@ -106,63 +106,68 @@ export class Recipes extends Component {
   //   });
   // }
 
+  handleRender(){
+   return  this.state.data.map((key, value) => 
+    <Card className="recipecard">
+    <CardHeader
+      avatar={
+        <Avatar aria-label="recipe" style={{backgroundColor: "rgb(109, 125, 201)"}}>
+          {key.name.substr(0,1)}
+        </Avatar>
+      }
+      action={
+        <IconButton aria-label="settings">
+          <MoreVertIcon />
+        </IconButton>
+      }
+      title={key.name}
+      subheader={key.date}
+    />
+    <CardMedia
+      className="media"
+      image={key.img}
+      title={key.name}
+    />
+    <CardContent>
+      <Typography variant="body2" color="textSecondary" component="p">
+        {key.description}
+      </Typography>
+    </CardContent>
+    <CardActions disableSpacing>
+      <IconButton aria-label="add to favorites">
+        <FavoriteIcon />
+      </IconButton>
+      <IconButton aria-label="share">
+        <ShareIcon />
+      </IconButton>
+      <IconButton
+        onClick={this.handleExpandClick}
+        aria-expanded={this.state.expanded}
+        aria-label="show more"
+      >
+        <ExpandMoreIcon />
+      </IconButton>
+    </CardActions>
+    <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+      <CardContent>
+        <Typography paragraph>Method:</Typography>
+        <Typography paragraph>
+          {key.process}
+        </Typography>
+      </CardContent>
+    </Collapse>
+  </Card>)
+  }
+
   handleExpandClick = () => {
     this.setState({ expanded: !this.state.expanded });
   };
 
   render() {
     return (
-      this.state.data.map((key, value) => 
-        <Card className="recipecard">
-        <CardHeader
-          avatar={
-            <Avatar aria-label="recipe" style={{backgroundColor: "rgb(109, 125, 201)"}}>
-              {key.name.substr(0,1)}
-            </Avatar>
-          }
-          action={
-            <IconButton aria-label="settings">
-              <MoreVertIcon />
-            </IconButton>
-          }
-          title={key.name}
-          subheader={key.date}
-        />
-        <CardMedia
-          className="media"
-          image={key.img}
-          title={key.name}
-        />
-        <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {key.description}
-          </Typography>
-        </CardContent>
-        <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
-          <IconButton
-            onClick={this.handleExpandClick}
-            aria-expanded={this.state.expanded}
-            aria-label="show more"
-          >
-            <ExpandMoreIcon />
-          </IconButton>
-        </CardActions>
-        <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
-          <CardContent>
-            <Typography paragraph>Method:</Typography>
-            <Typography paragraph>
-              {key.process}
-            </Typography>
-          </CardContent>
-        </Collapse>
-      </Card>
-      )
+     <div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-around", marginTop: "5%"}}>
+         {this.handleRender()}
+     </div>
     );
   }
 }
