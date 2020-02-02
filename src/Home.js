@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { Link } from 'react-router-dom';
 import '../src/Home.css'
+import history from "./history";
 
 export class Home extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ export class Home extends Component {
       data:
         [{
           name: 'Gluten Free',
+          filter: 'gluten_free',
           description: '',
           search: 'gluten+free',
           img: ''
@@ -24,47 +26,55 @@ export class Home extends Component {
         {
           name: 'Dairy Free',
           description: '',
+          filter: 'dairy_free',
           search: 'dairy+free',
           img: '',
         },
         {
           name: 'Lactose Free',
+          filter: 'lactose_free',
           description: '',
           search: 'lactose+free',
           img: ''
         },
         {
           name: 'Low Calorie',
+          filter: 'low_calorie',
           description: '',
           search: 'low+calorie+food',
           img: ''
         },
         {
           name: 'Sugar Free',
+          filter: 'sugar_free',
           description: '',
           search: 'sugar+free',
           img: ''
         },
         {
           name: 'Vegan',
+          filter: 'vegan',
           description: '',
           search: 'vegan+food',
           img: ''
         },
         {
           name: 'Vegetarian',
+          filter: 'vegetarian',
           description: '',
           search: 'pumpkin+soup',
           img: ''
         },
         {
           name: 'Low Fat',
+          filter: 'low_fat',
           description: '',
           search: 'low+fat',
           img: ''
         },
         {
           name: 'Italian',
+          filter: 'italian',
           description: '',
           search: 'italian+food',
           img: ''
@@ -92,7 +102,7 @@ export class Home extends Component {
   }
 
   handleClick = name => {
-
+    history.push('/recipes/' + name);
   }
 
   render() {
@@ -119,10 +129,10 @@ export class Home extends Component {
             <Button size="small" color="primary">
               <FavoriteIcon />
             </Button>
-            <Link to="/recipes">
-              <Button size="small" color="primary" onClick={this.handleClick(key.name)}>
+            <Link to={"/recipes/" + key.filter}>
+              <Button size="small" color="primary" onClick={() => this.handleClick(key.filter)}>
                 Click for more details
-          </Button>
+            </Button>
             </Link>
           </CardActions>
         </Card>

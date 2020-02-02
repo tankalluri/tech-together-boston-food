@@ -3,11 +3,12 @@ import './App.css';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import {Home} from "./Home";
 import { Recipes } from './Recipes';
+import history from "./history";
 
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router history={history}>
         <div className="App-header">
           <span style={{float: "right"}}>CookEasy</span>
         </div>
@@ -17,7 +18,7 @@ function App() {
             <Home/>
             </div></div>
           </Route>
-          <Router path="/recipes" component={Recipes}/>
+          <Route path="/recipes/:filter" component={Recipes}/>
         </Switch>
         </Router>
         </div>
