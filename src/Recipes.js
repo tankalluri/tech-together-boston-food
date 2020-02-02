@@ -40,7 +40,7 @@ export class Recipes extends Component {
           description: 'Try swapping in zucchini for eggplant in classic baba ganoush for this creamy, dreamy, vegan zucchini-and-tahini dip.',
           img: require('../src/lactose.png'),
           date: 'July 4 2002',
-          process:''
+          process:'Heat grill to medium. Toss zucchini with 1 tablespoon oil and 1/2 teaspoon salt and grill until tender and evenly charred, 8 to 10 minutes. Transfer zucchini to blender along with garlic, tahini, lemon juice, and 1 tablespoon mint and pulse to combine. With motor running on low speed, drizzle in remaining 2 tablespoons olive oil and puree until mostly smooth, increasing blender speed if necessary. Chop remaining mint. Serve zucchini mixture topped with mint and pine nuts.'
         },
         {
           name : 'Creamy Roasted Squash Puree',
@@ -54,14 +54,14 @@ export class Recipes extends Component {
           description: 'These customizable chocolate coins are basically just melted chocolate topped with anything your heart desires. Use dairy-free chocolate and they are a 100% vegan treat.',
           img: require('../src/grapes.jpg'),
           date: 'April 15 1999',
-          process:''
+          process:'Melt the chocolate in a double-boiler: place a small saucepan of hot water over low heat, set the chocolate in a heatproof bowl over it, and allow it to melt gently, stirring with a spoon. Place your feuille guitare on a flat and cold surface and take the bowl of chocolate off the heat. Drop small spoonfuls of chocolate on the sheet, using the back of the spoon to form little circles, about 4cm (1 1/2 inches) across.Place 2 to 3 topping elements (nut, fruit, and/or other) on the circle. Try to create nice contrasting effects with the color and texture and taste of the toppings. Work a few mendiants at a time, forming six circles of chocolate then decorating them before spooning in new circles.When a batch is complete, place the sheet in a cool place for the chocolate to set, then pluck the mendiants carefully from the sheet.'
         },
         {
           name : 'Cucumber Melon Soup',
           description: 'This one-pot gazpacho combines cool cucumbers with sweet honeydew for a totally vegan, totally delicious soup.',
           img: require('../src/grapes.jpg'),
           date: 'February 17 2018',
-          process:''
+          process:'Put all ingredients in a blender.  Blend until smooth.Adjust to taste, adding more lime or jalapeño.Refrigerate and serve chilled.'
         },
         {
           name : 'Mushroom Quinoa Burger',
@@ -87,24 +87,6 @@ export class Recipes extends Component {
       ]
     };
   }
-
-  // componentDidMount() {
-  //   const { data } = this.state;
-  //   const axios = require('axios');
-  //   let newObj = JSON.parse(JSON.stringify(data));
-
-  //   const requests = newObj.map(async val => {
-  //     const url = 'https://pixabay.com/api/?key=15109849-5dddb086f24a8ef9023579a12&q=' + val.search + '&image_type=photo&pretty=true';
-  //     return axios.get(url).then(response => {
-  //       val.img = response.data.hits[0].previewURL;
-  //       return val;
-  //     });
-  //   });
-
-  //   Promise.all(requests).then((completed) => {
-  //     this.setState({ data: completed });
-  //   });
-  // }
 
   handleRender(){
    return  this.state.data.map((key, value) => 
